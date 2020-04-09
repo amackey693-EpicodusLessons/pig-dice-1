@@ -1,7 +1,30 @@
-.active {
-  background-color:#caedd4;
+
+#player1 {
+  background-color:lightblue;
+  padding: 25px;
+  opacity: 90%;
+}
+#player2 {
+background-color: lightcoral;
+  padding: 25px;
+  opacity: 90%;
 }
 
 body {
-  margin:50
+  /* background-color: lightslategray;
+   */
+  background-image: url(https://media.giphy.com/media/xULW8rvzyLyeEZZ4Hu/giphy.gif);
+  background-image:repeat;
+  background-position: center;
+  margin:50px;
+  padding:25px;
+  text-align: center;
+}
+
+#turnOver1 {
+  display:none;
+}
+
+#turnOver2 {
+  display:none;
 }

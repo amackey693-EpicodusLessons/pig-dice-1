@@ -1,22 +1,13 @@
 //Business Logic 
 //for Player -->
 function Player () {
-  this.playerName = "";
   this.totalScore = 0;
   this.turnScore = 0;
   this.currentPlayer = ""; 
 };
 
-// Player.prototype.switchPlayers = function() {
-//   if (this.currentPlayer === "active") {
-
-//   }
-// }
-
+// Roll button method ==> outputs a random number
 Player.prototype.rollDice = function() {
-  // var num = random; 
-  // var num1 = turnScore;
-  // var total = num + num1; 
   var random = Math.floor(Math.random() * 6) + 1;
   if (random === 1) {
     this.turnScore = 0;
@@ -24,7 +15,7 @@ Player.prototype.rollDice = function() {
   } else if (random !== 1) {
     this.turnScore += random;
   } 
-  // console.log("turn score", this.turnScore);
+
   console.log("Random", random);
 };
 
@@ -41,78 +32,57 @@ Player.prototype.sumScore = function(){
   console.log("turn score", this.turnScore)
 
 };
-  
-// Optional "Game" Construct to keep track of which players turn it is??
 
-// var playerOne = new Player(); 
-// var playerTwo = new Player();
-// var turnScore = [];
-// playerOne.rollDice();
-// playerOne.sumScore();
-
-
-//User Interface Logic ----------------->
-//creating function for hold button that calls on the .sumScore method when it's clicked 
-// testing add function of .sumScore method when said button is clicked
-// .append() | .html()
-// if we set turnscore to 0 var total would = random number rolled + 0, and on next roll it would be random number rolled + previously stored integer in turnscore.
-
-function showPlayer(){
-  // var contact = addressBook.findContact(contactId);
- 
-
-  // $("#").html(player.totalScore);
-
-}
-
-  // var buttons = $("#buttons");
-  // buttons.empty();
-  // buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
-  // console.log("contactId", contactId)
-
+// User interface logic
 $(document).ready(function() {
   var playerOne = new Player();
   var playerTwo = new Player(); 
+
+  // Roll button for player one
   $("button#roll1").click(function () {
     playerOne.rollDice();
     $(".player-name1").html(playerOne.playerName);
     $(".current-score1").html(playerOne.turnScore);
-    $(this).addClass("active");
-
+    if (playerOne.turnScore === 0){
+      $(".player-one-turn").slideUp(this);
+      $(".player-two-turn").slideDown();
+      $("#turnOver2").show();
+      $("#turnOver1").hide();
+    }
   });
 
+  // Roll button for player two
   $("button#roll2").click(function () {
     playerTwo.rollDice();
     $(".player-name2").html(playerTwo.playerName);
     $(".current-score2").html(playerTwo.turnScore);
-    $(this).addClass("active");
+    if (playerTwo.turnScore === 0) {
+      $(".player-two-turn").slideUp(this);
+      $(".player-one-turn").slideDown();
+      $("#turnOver1").show();
+      $("#turnOver2").hide();
+    }
   });
 
+  // Hold button for player one
   $("button#hold1").click(function(){  
     playerOne.sumScore()
     $(".game-score1").html(playerOne.totalScore);
     $(".player-one-turn").slideUp(this);
     $(".player-two-turn").slideDown();
+    $("#turnOver2").show();
+    $("#turnOver1").hide();
   });
 
+  // Hold button for player two
   $("button#hold2").click(function(){  
     playerTwo.sumScore()
     $(".game-score2").html(playerTwo.totalScore);
-    $(".active").removeClass("active");
     $(".player-two-turn").slideUp(this);
     $(".player-one-turn").slideDown();
-  });
+    $("#turnOver1").show();
+    $("#turnOver2").hide();
     
-
-  // debugger;
-  
+  });
 });
-
-// Tomorrow!
-// - Get functionality for "Hold Button"/sumScore to work in BL 
-//    - When player presses "hold" display player's total in UI
-//    - Create 4 different outputs in HTML 
-//          1. Display Turn Total for PlayerOne & PlayerTwo
-//          
-//          
 
