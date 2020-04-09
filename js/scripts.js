@@ -16,7 +16,6 @@ Player.prototype.rollDice = function() {
   } else if (random !== 1) {
     this.turnScore += random;
   } 
-
   console.log("Random", random);
 };
 
@@ -24,10 +23,8 @@ Player.prototype.rollDice = function() {
 Player.prototype.sumScore = function(){  
   this.totalScore = this.totalScore + this.turnScore;
   this.turnScore = 0;
-
- 
-  console.log("total score", this.totalScore)
-  console.log("turn score", this.turnScore)
+  // console.log("total score", this.totalScore)
+  // console.log("turn score", this.turnScore)
 
 };
 
@@ -75,8 +72,7 @@ $(document).ready(function() {
     if (playerOne.totalScore >= 100) {
       playerOne.turnScore = 0;
       $("#winner1").show();
-     
-
+      $(".player-two-turn").hide();
     }
   });
 
@@ -91,9 +87,8 @@ $(document).ready(function() {
     if (playerTwo.totalScore >= 100) {
       playerTwo.turnScore = 0;
        $("#winner2").show();
+      $(".player-one-turn").hide();
     }
   });
-
-
 });
 
