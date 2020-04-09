@@ -2,9 +2,16 @@
 //for Player -->
 function Player () {
   this.playerName = "";
-  this.totalScore = [];
+  this.totalScore = 0;
   this.turnScore = 0;
+  this.currentPlayer = ""; 
 };
+
+Player.prototype.switchPlayers = function() {
+  if (this.currentPlayer === "active") {
+
+  }
+}
 
 Player.prototype.rollDice = function() {
   // var num = random; 
@@ -13,40 +20,27 @@ Player.prototype.rollDice = function() {
   var random = Math.floor(Math.random() * 6) + 1;
   if (random === 1) {
     this.turnScore = 0;
-      
-  } else if (this.turnScore >= 21) {
-    this.turnScore = 0;
-    return alert("You Win!")
 
   } else if (random !== 1) {
     this.turnScore += random;
   } 
   // console.log("turn score", this.turnScore);
-  // console.log("Random", random);
+  console.log("Random", random);
 };
 
 // "Hold Button" Method --> Adds to the total score
 Player.prototype.sumScore = function(){  
-  var sum = [];
-  sum.push(this.turnScore);
+  this.totalScore = this.totalScore + this.turnScore;
+  this.turnScore = 0;
 
-  sum.reduce(function (accumulator, currentValue, currentIndex, array) {
-    return accumulator + currentValue;
-  });
-  this.totalScore.push(sum);
-  console.log("sum", sum)
+  if (this.totalScore >= 100) {
+  this.turnScore = 0;
+  return alert("You Win!")
+  }
+  console.log("total score", this.totalScore)
+  console.log("turn score", this.turnScore)
+
 };
-
-//   var hold = this.turnScore + this.totalScore;
-//   if (this.turnScore === 0) {
-//     hold = 0;
-//   } 
-//   if (this.turnScore > 1) {
-  
-//   }
-//   return hold
-//   console.log("hold", hold)
-
   
 // Optional "Game" Construct to keep track of which players turn it is??
 
@@ -99,6 +93,7 @@ $(document).ready(function() {
     $(".game-score1").html(playerOne.totalScore);
   });
     
+  
   // debugger;
   
 });
