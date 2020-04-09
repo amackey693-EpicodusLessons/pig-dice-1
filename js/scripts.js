@@ -72,7 +72,7 @@ $(document).ready(function() {
     $(".player-two-turn").slideDown();
     $("#turnOver2").show();
     $("#turnOver1").hide();
-    if (playerOne.totalScore >= 4) {
+    if (playerOne.totalScore >= 100) {
       playerOne.turnScore = 0;
       $("#winner1").show();
      
@@ -88,7 +88,7 @@ $(document).ready(function() {
     $(".player-one-turn").slideDown();
     $("#turnOver1").show();
     $("#turnOver2").hide(); 
-    if (playerTwo.totalScore >= 4) {
+    if (playerTwo.totalScore >= 100) {
       playerTwo.turnScore = 0;
        $("#winner2").show();
     }
