@@ -25,10 +25,7 @@ Player.prototype.sumScore = function(){
   this.totalScore = this.totalScore + this.turnScore;
   this.turnScore = 0;
 
-  if (this.totalScore >= 4) {
-  this.turnScore = 0;
-  $("#winner").show();
-  }
+ 
   console.log("total score", this.totalScore)
   console.log("turn score", this.turnScore)
 
@@ -75,6 +72,12 @@ $(document).ready(function() {
     $(".player-two-turn").slideDown();
     $("#turnOver2").show();
     $("#turnOver1").hide();
+    if (playerOne.totalScore >= 4) {
+      playerOne.turnScore = 0;
+      $("#winner1").show();
+     
+
+    }
   });
 
   // Hold button for player two
@@ -85,6 +88,10 @@ $(document).ready(function() {
     $(".player-one-turn").slideDown();
     $("#turnOver1").show();
     $("#turnOver2").hide(); 
+    if (playerTwo.totalScore >= 4) {
+      playerTwo.turnScore = 0;
+       $("#winner2").show();
+    }
   });
 
 
