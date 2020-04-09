@@ -1,6 +1,7 @@
 <!DOCTYPE html>
   <head>
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/scripts.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -11,39 +12,42 @@
     <h1 class="animated slideInLeft ">Pig Dice</h1>
    
     <div class="container">
+            <!-- Player One Section -->
       <div class="player-one-turn">
         <div class="animated bounceInUp">
-               <!-- Player One Section -->
           <div class="jumbotron" id="player1">
-               <!-- Player One's Turn! -->
+            <!-- Player One's Turn! -->
             <div id="turnOver1">
             <h2 class="animated bounceInUp" >Player One's Turn!</h1>
             </div>
+            <!-- Player One's Game Card Info -->
             <p><b>Player One</b></p>
             <p>Current Score: <span class = "current-score1"></span></p>
             <p>Game Score: <span class="game-score1"></span></p>
-               <!-- Player One button -->
+            <!-- Player One button -->
             <button type="button" id="roll1"> Roll Dice! </button>
             <button type="button" id="hold1"> Hold </button>
           </div>
         </div>
       </div>
-       
-       
-
-             <!-- Player Two Section -->
+      <div id="winner" class="jumbotron">
+        <h1 class="animated fadeInDownBig">You are the winner!!</h1>
+        <button class="btn btn-info">
+          <a href="javascript:location.reload(true)">New Game!</a>
+        </button>
+      </div>
+           <!-- Player Two Section -->
       <div class="player-two-turn">
        <div class = "animated bounceInDown">
           <div class="jumbotron" id="player2">
-             <!-- Player Two's Turn! -->
+            <!-- Player Two's Turn! -->
             <div id="turnOver2">
               <h2 class="animated bounceInUp">Player Two's Turn!</h2>
             </div>
-            <!-- Player Two's -->
+            <!-- Player Two's Game Card Info-->
             <p><b>Player Two</b></p>
             <p>Current Score: <span class = "current-score2"></span></p>
             <p>Game Score: <span class="game-score2"></span></p>
-
             <!-- Player Two Buttons -->
             <button type="button" id="roll2"> Roll Dice! </button>
             <button type="button" id="hold2"> Hold </button>
@@ -51,6 +55,7 @@
         </div>
       </div>
     </div>
+    
   </body>   
 </html>
 

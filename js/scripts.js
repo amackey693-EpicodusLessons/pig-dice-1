@@ -11,6 +11,7 @@ Player.prototype.rollDice = function() {
   var random = Math.floor(Math.random() * 6) + 1;
   if (random === 1) {
     this.turnScore = 0;
+    swal("You rolled a One!");
 
   } else if (random !== 1) {
     this.turnScore += random;
@@ -24,9 +25,9 @@ Player.prototype.sumScore = function(){
   this.totalScore = this.totalScore + this.turnScore;
   this.turnScore = 0;
 
-  if (this.totalScore >= 100) {
+  if (this.totalScore >= 4) {
   this.turnScore = 0;
-  return alert("You Win!")
+  $("#winner").show();
   }
   console.log("total score", this.totalScore)
   console.log("turn score", this.turnScore)
@@ -46,6 +47,7 @@ $(document).ready(function() {
     if (playerOne.turnScore === 0){
       $(".player-one-turn").slideUp(this);
       $(".player-two-turn").slideDown();
+      // swal("You rolled a One!");
       $("#turnOver2").show();
       $("#turnOver1").hide();
     }
@@ -59,6 +61,7 @@ $(document).ready(function() {
     if (playerTwo.turnScore === 0) {
       $(".player-two-turn").slideUp(this);
       $(".player-one-turn").slideDown();
+      // swal("You rolled a One!");
       $("#turnOver1").show();
       $("#turnOver2").hide();
     }
@@ -81,8 +84,9 @@ $(document).ready(function() {
     $(".player-two-turn").slideUp(this);
     $(".player-one-turn").slideDown();
     $("#turnOver1").show();
-    $("#turnOver2").hide();
-    
+    $("#turnOver2").hide(); 
   });
+
+
 });
 

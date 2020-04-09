@@ -4,6 +4,9 @@
   padding: 25px;
   opacity: 90%;
 }
+#winner {
+  display:none;
+}
 #player2 {
 background-color: lightcoral;
   padding: 25px;
@@ -27,4 +30,10 @@ body {
 
 #turnOver2 {
   display:none;
+}
+a {
+  color:black;
+}
+a{
+  
 }
