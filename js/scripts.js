@@ -1,13 +1,13 @@
 //Business Logic 
 //for Player -->
-function Player () {
+function Player() {
   this.totalScore = 0;
   this.turnScore = 0;
-  this.currentPlayer = ""; 
+  this.currentPlayer = "";
 };
 
 // Roll button method ==> outputs a random number
-Player.prototype.rollDice = function() {
+Player.prototype.rollDice = function () {
   var random = Math.floor(Math.random() * 6) + 1;
   if (random === 1) {
     this.turnScore = 0;
@@ -15,33 +15,30 @@ Player.prototype.rollDice = function() {
 
   } else if (random !== 1) {
     this.turnScore += random;
-  } 
-
+  }
   console.log("Random", random);
 };
 
 // "Hold Button" Method --> Adds to the total score
-Player.prototype.sumScore = function(){  
+Player.prototype.sumScore = function () {
   this.totalScore = this.totalScore + this.turnScore;
   this.turnScore = 0;
-
- 
-  console.log("total score", this.totalScore)
-  console.log("turn score", this.turnScore)
+  // console.log("total score", this.totalScore)
+  // console.log("turn score", this.turnScore)
 
 };
 
 // User interface logic
-$(document).ready(function() {
+$(document).ready(function () {
   var playerOne = new Player();
-  var playerTwo = new Player(); 
+  var playerTwo = new Player();
 
   // Roll button for player one
   $("button#roll1").click(function () {
     playerOne.rollDice();
     $(".player-name1").html(playerOne.playerName);
     $(".current-score1").html(playerOne.turnScore);
-    if (playerOne.turnScore === 0){
+    if (playerOne.turnScore === 0) {
       $(".player-one-turn").slideUp(this);
       $(".player-two-turn").slideDown();
       // swal("You rolled a One!");
@@ -65,35 +62,33 @@ $(document).ready(function() {
   });
 
   // Hold button for player one
-  $("button#hold1").click(function(){  
+  $("button#hold1").click(function () {
     playerOne.sumScore()
     $(".game-score1").html(playerOne.totalScore);
     $(".player-one-turn").slideUp(this);
     $(".player-two-turn").slideDown();
     $("#turnOver2").show();
     $("#turnOver1").hide();
-    if (playerOne.totalScore >= 4) {
+    if (playerOne.totalScore >= 100) {
       playerOne.turnScore = 0;
       $("#winner1").show();
-     
-
+      $(".player-two-turn").hide();
     }
   });
 
   // Hold button for player two
-  $("button#hold2").click(function(){  
+  $("button#hold2").click(function () {
     playerTwo.sumScore()
     $(".game-score2").html(playerTwo.totalScore);
     $(".player-two-turn").slideUp(this);
     $(".player-one-turn").slideDown();
     $("#turnOver1").show();
-    $("#turnOver2").hide(); 
-    if (playerTwo.totalScore >= 4) {
+    $("#turnOver2").hide();
+    if (playerTwo.totalScore >= 100) {
       playerTwo.turnScore = 0;
-       $("#winner2").show();
+      $("#winner2").show();
+      $(".player-one-turn").hide();
     }
   });
-
-
 });
 
