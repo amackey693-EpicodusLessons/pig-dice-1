@@ -12,12 +12,18 @@
     <h1 class="animated slideInLeft ">Pig Dice</h1>
    
     <div class="container">
-          <!-- Player One Section -->
+      <!-- winner banners -->
+      <div id="winner2" class="jumbotron">
+        <h1 class="animated fadeInDownBig">Player two is the winner!!</h1>
+        <button class="btn btn-info" onClick="window.location.reload();"> New Game!</button>
+        </button>
+      </div>
       <div id="winner1" class="jumbotron">
         <h1 class="animated fadeInDownBig">Player one is the winner!!</h1>
         <button class="btn btn-info" onClick="window.location.reload();"> New Game!</button>
         </button>
       </div>
+      <!-- Player One Section -->
       <div class="player-one-turn">
         <div class="animated bounceInUp">
           <div class="jumbotron" id="player1">
@@ -36,11 +42,7 @@
           </div>
         </div>
       </div>
-      <div id="winner2" class="jumbotron">
-        <h1 class="animated fadeInDownBig">Player two is the winner!!</h1>
-        <button class="btn btn-info" onClick="window.location.reload();"> New Game!</button>
-        </button>
-      </div>
+      
            <!-- Player Two Section -->
       <div class="player-two-turn">
        <div class = "animated bounceInDown">
