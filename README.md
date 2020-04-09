@@ -12,13 +12,12 @@ A site to play a game. Practicing our use of jQuery & JavaScript.
 
 |   Behavior Description   |  Input Ex.   |        Output Ex.        |
 |------------------------------|--------------|--------------------------|
-| 1. Create an array that counts to 6 but outputs a random number between 1 & 6    |  User press button  |  A # 1 - 6   |
-| 2. If the roll is > 1 the player can continue to roll  | > 1  |  Roll again  or hold? |
-| 3. If the roll is === 1  |   1   |   Next players turn   |
-| 4. Hold button sums players total score & displays it | Press "hold" button | Sum of rolls is displayed to the user | 
-| 5. Hold button ==> switches to another player | Press "hold" button | Next players turn. |
-| 6. Allows player to roll multiple times & sum numbers rolled | User presses roll button output > 1 |  User is prompted to roll again 
-| 7. Determine who the winner 
+| 1. Create an array that counts to 6 but outputs a random number between 1 & 6    |  User press button  |  A # 1 - 6   
+| 2. If the roll is === 1  |   1   |   Next players turn   |
+| 3. Hold button sums players total score & stores it | Press "hold" button | total for turn is saved in the total score | 
+| 4. Hold button ==> switches to another player | Press "hold" button | Next players turn. |
+| 5. Allows player to roll multiple times & sum numbers rolled | User presses roll button output > 1 |  player is able to push roll button until they roll a 0.
+| 6. Determine whos the winner| play until you reach 100| whichever player hits 100 display you are the winner. 
 
 
 ## Setup/Installation Requirements
