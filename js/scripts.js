@@ -7,11 +7,11 @@ function Player () {
   this.currentPlayer = ""; 
 };
 
-Player.prototype.switchPlayers = function() {
-  if (this.currentPlayer === "active") {
+// Player.prototype.switchPlayers = function() {
+//   if (this.currentPlayer === "active") {
 
-  }
-}
+//   }
+// }
 
 Player.prototype.rollDice = function() {
   // var num = random; 
@@ -73,27 +73,37 @@ function showPlayer(){
 $(document).ready(function() {
   var playerOne = new Player();
   var playerTwo = new Player(); 
-
   $("button#roll1").click(function () {
     playerOne.rollDice();
     $(".player-name1").html(playerOne.playerName);
     $(".current-score1").html(playerOne.turnScore);
-    
+    $(this).addClass("active");
+
   });
 
   $("button#roll2").click(function () {
     playerTwo.rollDice();
     $(".player-name2").html(playerTwo.playerName);
     $(".current-score2").html(playerTwo.turnScore);
-    
+    $(this).addClass("active");
   });
 
-  $("button#hold").click(function(){  
+  $("button#hold1").click(function(){  
     playerOne.sumScore()
     $(".game-score1").html(playerOne.totalScore);
+    $(".player-one-turn").slideUp(this);
+    $(".player-two-turn").slideDown();
+  });
+
+  $("button#hold2").click(function(){  
+    playerTwo.sumScore()
+    $(".game-score2").html(playerTwo.totalScore);
+    $(".active").removeClass("active");
+    $(".player-two-turn").slideUp(this);
+    $(".player-one-turn").slideDown();
   });
     
-  
+
   // debugger;
   
 });
